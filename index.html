@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>◦ CIPHER_MATRIX_v4.2 ◦ CLASSIFIED ACCESS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="matrix-bg" id="matrixBg"></div>
+
+    <div class="terminal-header">
+        <div class="header-line">
+            <span>SYSTEM: CIPHER_MATRIX_v4.2</span>
+            <span>USER: ANONYMOUS</span>
+            <span>ACCESS: <span class="system-status">UNAUTHORIZED</span></span>
+        </div>
+        <div class="header-line">
+            <span>LOCATION: CLASSIFIED</span>
+            <span>ENCRYPTION: QUANTUM-AES-512</span>
+            <span>STATUS: ACTIVE</span>
+        </div>
+        <div class="terminal-title">◦ CIPHER MATRIX ◦</div>
+        <div class="subtitle">ADVANCED QUANTUM ENCRYPTION PROTOCOL</div>
+    </div>
+
+    <div class="container">
+        <div class="control-grid">
+            <div class="terminal-window">
+                <div class="window-header">
+                    <div class="window-controls">
+                        <div class="window-btn btn-close"></div>
+                        <div class="window-btn btn-minimize"></div>
+                        <div class="window-btn btn-maximize"></div>
+                    </div>
+                    <div class="window-title">QUANTUM_ENCRYPTION_TERMINAL.exe</div>
+                </div>
+                <div class="window-content">
+                    <div class="input-group">
+                        <label class="input-label">DATA_INPUT</label>
+                        <textarea id="textInput" rows="4" placeholder="Enter classified data for quantum encryption...">HELLO WORLD</textarea>
+                    </div>
+                    <button class="hack-btn" onclick="executeEncryption()">ENCRYPT_DATA</button>
+                    <button class="hack-btn btn-warning" onclick="exportImage()">EXPORT_IMG</button>
+                    <button class="hack-btn btn-danger" onclick="generateQR()">GEN_QR_CODE</button>
+                    <button class="hack-btn" onclick="openAlphabetPreview()">ALPHABET_VIEW</button>
+                </div>
+            </div>
+
+            <div class="terminal-window">
+                <div class="window-header">
+                    <div class="window-controls">
+                        <div class="window-btn btn-close"></div>
+                        <div class="window-btn btn-minimize"></div>
+                        <div class="window-btn btn-maximize"></div>
+                    </div>
+                    <div class="window-title">QUANTUM_DECRYPTION_TERMINAL.exe</div>
+                </div>
+                <div class="window-content">
+                    <div class="input-group">
+                        <label class="input-label">IMAGE_UPLOAD</label>
+                        <input type="file" id="imageInput" accept="image/*" onchange="handleImageUpload()">
+                    </div>
+                    <button class="hack-btn" onclick="executeDecryption()">DECRYPT_IMG</button>
+                    <button class="hack-btn btn-warning" onclick="printCipher()">PRINT_CIPHER</button>
+                    <div class="input-group">
+                        <label class="input-label">DECRYPTED_OUTPUT</label>
+                        <textarea id="outputText" rows="3" readonly placeholder="Decrypted data will appear here..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-window">
+            <div class="window-header">
+                <div class="window-controls">
+                    <div class="window-btn btn-close"></div>
+                    <div class="window-btn btn-minimize"></div>
+                    <div class="window-btn btn-maximize"></div>
+                </div>
+                <div class="window-title">LIVE_STATISTICS_MONITOR.log</div>
+            </div>
+            <div class="window-content">
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">BYTES_PROCESSED</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="blockCount">0</div>
+                        <div class="stat-label">CIPHER_BLOCKS</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="spaceCount">0</div>
+                        <div class="stat-label">NULL_SPACES</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="complexityLevel">0%</div>
+                        <div class="stat-label">COMPLEXITY_LVL</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="securityLevel">LOW</div>
+                        <div class="stat-label">SECURITY_LVL</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="encryptionTime">0ms</div>
+                        <div class="stat-label">ENCRYPT_TIME</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cipher-display">
+            <div class="cipher-grid" id="cipherGrid">
+                <div style="text-align: center; width: 100%; color: var(--text-dim); font-size: 1rem; margin: 2rem 0;">
+                    ◦ AWAITING_ENCRYPTION_COMMAND ◦
+                </div>
+            </div>
+        </div>
+
+        <div class="tools-panel">
+            <div class="tool-section">
+                <div class="tool-title">◦ DATA_OPERATIONS</div>
+                <button class="hack-btn" onclick="copyToClipboard()">COPY_DATA</button>
+                <button class="hack-btn" onclick="openShareModal()">SHARE_CIPHER</button>
+                <button class="hack-btn" onclick="clearAll()">WIPE_MEMORY</button>
+                <button class="hack-btn btn-warning" onclick="downloadJSON()">EXPORT_JSON</button>
+                <button class="hack-btn btn-warning" onclick="uploadJSON()">IMPORT_JSON</button>
+            </div>
+
+            <div class="tool-section">
+                <div class="tool-title">◦ SYSTEM_TOOLS</div>
+                <button class="hack-btn" onclick="hackMode()">HACK_MODE</button>
+                <button class="hack-btn btn-danger" onclick="ghostProtocol()">GHOST_PROTOCOL</button>
+                <button class="hack-btn btn-warning" onclick="matrixReload()">MATRIX_RELOAD</button>
+                <button class="hack-btn" onclick="encryptionBoost()">BOOST_ENCRYPTION</button>
+            </div>
+
+            <div class="tool-section">
+                <div class="tool-title">◦ QUANTUM_OPS</div>
+                <button class="hack-btn" onclick="quantumEncrypt()">QUANTUM_MODE</button>
+                <button class="hack-btn btn-danger" onclick="breakQuantum()">BREAK_QUANTUM</button>
+                <button class="hack-btn btn-warning" onclick="neuralCrack()">NEURAL_CRACK</button>
+                <button class="hack-btn" onclick="superPosition()">SUPERPOSITION</button>
+            </div>
+
+            <div class="tool-section">
+                <div class="tool-title">◦ STEALTH_MODE</div>
+                <button class="hack-btn btn-danger" onclick="goStealth()">STEALTH_MODE</button>
+                <button class="hack-btn" onclick="anonymousMode()">ANONYMOUS_VPN</button>
+                <button class="hack-btn btn-warning" onclick="coverTracks()">COVER_TRACKS</button>
+                <button class="hack-btn btn-danger" onclick="emergencyExit()">EMERGENCY_EXIT</button>
+            </div>
+        </div>
+
+        <div class="terminal-message" id="terminalMessage"></div>
+    </div>
+
+    <div class="qr-modal" id="qrModal">
+        <div class="modal-container">
+            <h3>◦ QUANTUM_QR_CODE_GENERATED ◦</h3>
+            <div class="qr-canvas" id="qrCanvas"></div>
+            <button class="hack-btn" onclick="closeModal('qrModal')">CLOSE_QR</button>
+            <button class="hack-btn btn-warning" onclick="downloadQR()">DOWNLOAD_QR</button>
+        </div>
+    </div>
+
+    <div class="alphabet-modal" id="alphabetModal">
+        <div class="modal-container">
+            <h3>◦ QUANTUM_ALPHABET_CIPHER_PATTERNS ◦</h3>
+            <div class="alphabet-preview" id="alphabetPreview"></div>
+            <button class="hack-btn" onclick="closeModal('alphabetModal')">CLOSE_PREVIEW</button>
+        </div>
+    </div>
+
+    <div class="share-modal" id="shareModal">
+        <div class="modal-container">
+            <h3>◦ SECURE_CIPHER_SHARING ◦</h3>
+            <div class="share-options">
+                <div class="share-btn" onclick="shareViaEmail()">
+                    📧 EMAILSECUR
+                </div>
+                <div class="share-btn" onclick="shareViaClipboard()">
+                    📋CLIPBOARDCOPY
+                </div>
+                <div class="share-btn" onclick="shareAsLink()">
+                    🔗 GENERAT_LINK
+                </div>
+                <div class="share-btn" onclick="shareAsQR()">
+                    📱QRSHARE
+                </div>
+                <div class="share-btn" onclick="shareAsTelegram()">
+                    📱 TELEGRA
+                </div>
+                <div class="share-btn" onclick="shareAsWhatsApp()">
+                    �WHATSAPP
+                </div>
+            </div>
+            <button class="hack-btn" onclick="closeModal('shareModal')">CLOSE_SHARE</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
